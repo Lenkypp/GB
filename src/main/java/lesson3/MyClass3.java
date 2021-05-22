@@ -10,19 +10,30 @@ public class MyClass3 {
 //    После победы или проигрыша выводится запрос – «Повторить игру еще раз? 1 – да / 0 – нет»(1 – повторить, 0 – нет).
     public static void main(String[] args) {
 
-//        Scanner sc = new Scanner(System.in);
-//        System.out.println("Введите число: ");
-//        int a = sc.nextInt();
-//        a *= 2;
-//        System.out.println("Введенное вами число, умноженное на 2, равно " + a);
-//        sc.close();
-//        System.out.println("\n");
-//        -----------------
+        int numberOne, d = 11;
+        Boolean isWinner  = false;
+
+        numberOne = getRandom();
+
+        for (int i = 1; i <= 3; i++) {
+            d = getNumberFromScanner("Угадайте число в пределах от 0 до 9.Попытка "+i+" из 3", 0, 9);
+ //           System.out.println("d = " + d);
+            if (numberOne==d) {
+                isWinner = true;
+                break;
+            }
+        }// for i =1
+        if (isWinner){
+            System.out.println("Поздравляем! Вы выграли! " + d);
+
+        }else{
+            System.out.println("Печально.Вы не угадали. ");
+
+        }
 
 
-        int d = getNumberFromScanner("Введите число в пределах от 0 до 9", 0, 9);
-        System.out.println("d = " + d);
     }
+
     public static Scanner sc = new Scanner(System.in);
 
      public static int getNumberFromScanner(String message, int min, int max) {
@@ -34,9 +45,12 @@ public class MyClass3 {
         return x;
     }
 
-    public static void guessRandom(String[] args) {
+    public static int getRandom() {
         Random random = new Random();
         int nextInt = random.nextInt(9);
+
+        return nextInt;
+
     }
 
 //    2.* Создать массив из слов
