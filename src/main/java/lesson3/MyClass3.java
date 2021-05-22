@@ -10,24 +10,32 @@ public class MyClass3 {
 //    После победы или проигрыша выводится запрос – «Повторить игру еще раз? 1 – да / 0 – нет»(1 – повторить, 0 – нет).
     public static void main(String[] args) {
 
-        int numberOne, d = 11;
+        int zagadka, otvet = 11;
         Boolean isWinner  = false;
 
-        numberOne = getRandom();
+        zagadka = getRandom();
 
         for (int i = 1; i <= 3; i++) {
-            d = getNumberFromScanner("Угадайте число в пределах от 0 до 9.Попытка "+i+" из 3", 0, 9);
- //           System.out.println("d = " + d);
-            if (numberOne==d) {
+            otvet = getNumberFromScanner("Угадайте число в пределах от 0 до 9.Попытка "+i+" из 3. Ваш ответ:", 0, 9);
+            System.out.println("--- ");
+            if (zagadka==otvet) {
                 isWinner = true;
                 break;
+            }else{
+                System.out.println("Ваше число "+otvet + (otvet< zagadka ? " меньше.": " больше."));
+
             }
+
+
         }// for i =1
+
+        System.out.print("****** ");
+
         if (isWinner){
-            System.out.println("Поздравляем! Вы выграли! " + d);
+            System.out.println("Поздравляем! Вы выграли! Загадочное число = " + zagadka+" ******");
 
         }else{
-            System.out.println("Печально.Вы не угадали. ");
+            System.out.println("Печально.Вы не угадали. Загадочное число = " + zagadka+" ******");
 
         }
 
