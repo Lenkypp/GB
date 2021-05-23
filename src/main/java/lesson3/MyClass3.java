@@ -10,9 +10,13 @@ public class MyClass3 {
 //    После победы или проигрыша выводится запрос – «Повторить игру еще раз? 1 – да / 0 – нет»(1 – повторить, 0 – нет).
     public static void main(String[] args) {
 
-        int zagadka, igraem;
+        int zagadka;
         int otvet = -10;
+        int igraem = 1;
+
         Boolean isWinner  = false;
+
+        while (igraem==1){
 
         zagadka = getRandom();
         System.out.println("z= "+zagadka);
@@ -46,7 +50,12 @@ public class MyClass3 {
         }
         System.out.println("************************************************************ ");
 
-        igraem = getNumberFromScanner("«Повторить игру еще раз? 1 – да / 0 – нет»(1 – повторить, 0 – нет) Ваш ответ:", 0, 1);
+        igraem = getNumberFromScanner("«Повторить игру еще раз? 1 – да повторить/0 – нет. Ваш ответ:", 0, 1);
+
+
+        }  // while (igraem==1)
+
+        System.out.println("**** End.******************************************************** ");
 
 
     }
