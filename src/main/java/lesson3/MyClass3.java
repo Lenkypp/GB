@@ -35,15 +35,16 @@ public class MyClass3 {
 
         }// for i =1
 
-        System.out.print("****** ");
+        System.out.println("*********************************************************** ");
 
         if (isWinner){
-            System.out.println("Поздравляем! Вы выграли! Загадочное число = " + zagadka+" ******");
+            System.out.println("Поздравляем! Вы выграли! Загадочное число = " + zagadka);
 
         }else{
-            System.out.println("Печально.Вы не угадали. Загадочное число = " + zagadka+" ******");
+            System.out.println("Печально.Вы не угадали. Загадочное число = " + zagadka);
 
         }
+        System.out.println("************************************************************ ");
 
         igraem = getNumberFromScanner("«Повторить игру еще раз? 1 – да / 0 – нет»(1 – повторить, 0 – нет) Ваш ответ:", 0, 1);
 
