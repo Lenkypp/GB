@@ -19,7 +19,7 @@ public class MyClass3 {
         while (igraem==1){
 
         zagadka = getRandom();
-        System.out.println("z= "+zagadka);
+//        System.out.println("z= "+zagadka);
 
         for (int i = 1; i <= 3; i++) {
             otvet = getNumberFromScanner("Угадайте число в пределах от 0 до 9.Попытка "+i+" из 3. Ваш ответ:", 0, 9);
@@ -39,7 +39,7 @@ public class MyClass3 {
 
         }// for i =1
 
-        System.out.println("*********************************************************** ");
+        System.out.println("**********************************************winner!************* ");
 
         if (isWinner){
             System.out.println("Поздравляем! Вы выграли! Загадочное число = " + zagadka);
@@ -48,14 +48,14 @@ public class MyClass3 {
             System.out.println("Печально.Вы не угадали. Загадочное число = " + zagadka);
 
         }
-        System.out.println("************************************************************ ");
+        System.out.println("**********************************************winner!************* ");
 
-        igraem = getNumberFromScanner("«Повторить игру еще раз? 1 – да повторить/0 – нет. Ваш ответ:", 0, 1);
+            igraem = getNumberFromScanner("«Повторить игру еще раз? 1 – да повторить/0 – нет. Ваш ответ:", 0, 1);
 
 
         }  // while (igraem==1)
 
-        System.out.println("**** End.******************************************************** ");
+        System.out.println("**** End.*********До новых встреч.********************************************** ");
 
 
     }
