@@ -16,7 +16,7 @@ public class MyClass4 {
 
         public static void main(String[] args) {
 
-            System.out.println("Введите размер игрового поля");
+            System.out.println("Введите размер игрового поля - целое число:");
             SIZE = sc.nextInt() ;
 
             initMap();
