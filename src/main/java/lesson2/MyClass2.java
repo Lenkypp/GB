@@ -53,7 +53,13 @@ public class MyClass2 {
             if (i==k) {
                 arr4[i][k] = 1;
             }
-           System.out.print(arr4[i][k]+"  ");
+
+            // вторая диагональ
+               if (i+k==arr4.length) {
+                   arr4[i][k] = 1;
+               }
+
+               System.out.print(arr4[i][k]+"  ");
 
            }
         System.out.println();
