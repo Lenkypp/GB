@@ -14,10 +14,10 @@ public class MyClass4 {
         private static final Scanner sc = new Scanner(System.in);
         private static final Random rand = new Random();
 
-        public static void main(String[] args) {
 
-            System.out.println("Введите размер игрового поля - целое число:");
-            SIZE = sc.nextInt() ;
+         public static void main(String[] args) {
+            //Запросим ввести размер игрового поля нечетное число (3x3, 5x5, 7x7, 9x9,...)
+            SIZE = inpSIZE() ;
 
             initMap();
             printMap();
@@ -120,7 +120,7 @@ public class MyClass4 {
                 }
             }// for (int j = 0; j < SIZE; j++)
 
-            // проверка по 1-ой диагонали  =======================================
+           // проверка по 1-ой диагонали  =======================================
             summ = 0;
             for (int i = 0; i < SIZE; i++) {
                  if (map[i][i] == symb) {
@@ -162,6 +162,8 @@ public class MyClass4 {
 
         private static void aiTurn() {
             int x, y;
+            //необходимо занять центральную клетку или центральную клетку
+
             do {
                 x = rand.nextInt(SIZE);
                 y = rand.nextInt(SIZE);
@@ -169,4 +171,16 @@ public class MyClass4 {
             System.out.printf("Компьютер походил в точку %d %d\n", x + 1, y + 1);
             map[y][x] = DOT_O;
         }
+
+    public static int inpSIZE() {
+        //Запросим ввести размер игрового поля нечетное число (3x3, 5x5, 7x7, 9x9,...)
+        int x;
+        do {
+            System.out.println("Введите размер игрового поля - нечетное число:");
+            x = sc.nextInt();
+         } while (x%2 == 0);
+
+           return x;
     }
+
+}// class
