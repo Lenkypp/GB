@@ -17,7 +17,7 @@ public class MyClass4 {
         private static int SIZE;
 
         //количество в ряд 'X' или '0' для победы (для размеров поля больше 3)
-        private static final int DOTS_TO_WIN;
+        private static int DOTS_TO_WIN;
 
         private static final char DOT_EMPTY = '-';
         private static final char DOT_X = 'X';
