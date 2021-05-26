@@ -4,9 +4,21 @@ import java.util.Random;
 import java.util.Scanner;
 
 // my Game01 крестики нолики******************************
+
+//===Домашнее задание урок 5===
+//Переделать проверку победы, чтобы она не была реализована просто набором условий,
+// например, с использованием циклов.
+//* Попробовать переписать логику проверки победы, чтобы она работала
+// для поля 5х5 и количества фишек 4.
+// Очень желательно не делать это просто набором условий для каждой из возможных ситуаций;
+// *** Доработать искусственный интеллект, чтобы он мог блокировать ходы игрока.
+
 public class MyClass4 {
-        private static int SIZE=3;
-        //private static final int DOTS_TO_WIN = 3;
+        private static int SIZE;
+
+        //количество в ряд 'X' или '0' для победы (для размеров поля больше 3)
+        private static final int DOTS_TO_WIN;
+
         private static final char DOT_EMPTY = '-';
         private static final char DOT_X = 'X';
         private static final char DOT_O = 'O';
@@ -16,8 +28,14 @@ public class MyClass4 {
 
 
          public static void main(String[] args) {
-            //Запросим ввести размер игрового поля нечетное число (3x3, 5x5, 7x7, 9x9,...)
+            //Запросим ввести размер игрового поля (3x3, 5x5, 7x7, 9x9,...)
             SIZE = inpSIZE() ;
+            if (SIZE==3){
+                DOTS_TO_WIN = 3;
+
+            }else{
+                DOTS_TO_WIN =  inpDOTS() ;
+            }
 
             initMap();
             printMap();
@@ -98,7 +116,7 @@ public class MyClass4 {
                         arrCheck[i][j] = 1; // присвоим 1 на адрес вместо X или 0
                         summ = summ + 1;
                         //если сумма единиц = SIZE  тогда победа
-                        if (summ == SIZE) {
+                        if (summ == DOTS_TO_WIN) {
                             return true;
                         }
                     }
@@ -113,7 +131,7 @@ public class MyClass4 {
                         arrCheck[i][j] = 1; // присвоим 1 на адрес вместо X или 0
                         summ = summ + 1;
                         //если сумма единиц = SIZE  тогда победа
-                        if (summ == SIZE) {
+                        if (summ == DOTS_TO_WIN) {
                             return true;
                         }
                     }
@@ -127,7 +145,7 @@ public class MyClass4 {
                     arrCheck[i][i] = 1; // присвоим 1 на адрес вместо X или 0
                     summ = summ + 1;
                     //если сумма единиц = SIZE  тогда победа
-                    if (summ == SIZE) {
+                    if (summ == DOTS_TO_WIN) {
                         return true;
                     }
                 }
@@ -140,7 +158,7 @@ public class MyClass4 {
                     arrCheck[i][SIZE-1-i] = 1; // присвоим 1 на адрес вместо X или 0
                     summ = summ + 1;
                     //если сумма единиц = SIZE  тогда победа
-                    if (summ == SIZE) {
+                    if (summ == DOTS_TO_WIN) {
                         return true;
                     }
                 }
@@ -176,11 +194,23 @@ public class MyClass4 {
         //Запросим ввести размер игрового поля нечетное число (3x3, 5x5, 7x7, 9x9,...)
         int x;
         do {
-            System.out.println("Введите размер игрового поля - нечетное число:");
+            System.out.println("Введите размер игрового поля - целое число:");
             x = sc.nextInt();
          } while (x%2 == 0);
 
            return x;
+    }
+
+    public static int inpDOTS(){
+        //Запросим ввести количество фишек
+        int x;
+        do {
+            System.out.println("Введите количество фишек:");
+            x = sc.nextInt();
+        } while ( x <3 || x > SIZE);
+
+        return x;
+
     }
 
 }// class
