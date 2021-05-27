@@ -1,5 +1,6 @@
 package lesson4;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -25,6 +26,10 @@ public class MyClass4 {
         private static char[][] map;
         private static final Scanner sc = new Scanner(System.in);
         private static final Random rand = new Random();
+        private static int[][] MAP_X;
+        private static int SUM_DANGER;
+
+
 
 
          public static void main(String[] args) {
@@ -32,17 +37,23 @@ public class MyClass4 {
             SIZE = inpSIZE() ;
             if (SIZE==3){
                 DOTS_TO_WIN = 3;
-
-            }else{
+             }else{
                 DOTS_TO_WIN =  inpDOTS() ;
             }
+             MAP_X = new int[SIZE][SIZE];
+            if (SIZE-DOTS_TO_WIN>=2 ) {
+                SUM_DANGER=SIZE - (SIZE - DOTS_TO_WIN) - 1;
+            }else{
+                SUM_DANGER = SIZE-1;
+            }
+
 
             initMap();
             printMap();
             while (true) {
                 humanTurn();
                 printMap();
-                if (isWin(DOT_X)){
+                if (isWin(DOT_X,DOTS_TO_WIN)){
                     System.out.println("Вы выиграли, УРА!");
                     break;
                 }
@@ -52,7 +63,7 @@ public class MyClass4 {
                 }
                 aiTurn();
                 printMap();
-                if (isWin(DOT_O)){
+                if (isWin(DOT_O, DOTS_TO_WIN)){
                     System.out.println("Выиграл искусственный интеллект, увы...");
                     break;
                 }
@@ -105,7 +116,7 @@ public class MyClass4 {
                     || map[y][x] != DOT_EMPTY;
         }
 
-        private static boolean isWin(char symb) {
+        private static boolean isWin(char symb,int predel) {
             int[][] arrCheck = new int[SIZE][SIZE];
             int summ =0;
             // замена и проверка сумм по горизонтали ==============================
@@ -116,7 +127,7 @@ public class MyClass4 {
                         arrCheck[i][j] = 1; // присвоим 1 на адрес вместо X или 0
                         summ = summ + 1;
                         //если сумма единиц = SIZE  тогда победа
-                        if (summ == DOTS_TO_WIN) {
+                        if (summ == predel) {
                             return true;
                         }
                     }
@@ -131,7 +142,7 @@ public class MyClass4 {
                         arrCheck[i][j] = 1; // присвоим 1 на адрес вместо X или 0
                         summ = summ + 1;
                         //если сумма единиц = SIZE  тогда победа
-                        if (summ == DOTS_TO_WIN) {
+                        if (summ == predel) {
                             return true;
                         }
                     }
@@ -145,7 +156,7 @@ public class MyClass4 {
                     arrCheck[i][i] = 1; // присвоим 1 на адрес вместо X или 0
                     summ = summ + 1;
                     //если сумма единиц = SIZE  тогда победа
-                    if (summ == DOTS_TO_WIN) {
+                    if (summ == predel) {
                         return true;
                     }
                 }
@@ -158,12 +169,14 @@ public class MyClass4 {
                     arrCheck[i][SIZE-1-i] = 1; // присвоим 1 на адрес вместо X или 0
                     summ = summ + 1;
                     //если сумма единиц = SIZE  тогда победа
-                    if (summ == DOTS_TO_WIN) {
+                    if (summ == predel) {
                         return true;
                     }
                 }
             }//for (int i = 0; i < SIZE; i++)
-
+            if (symb == DOT_X){
+                 MAP_X = arrCheck;
+            }
             return false;
             } //isWin(
 
@@ -180,8 +193,44 @@ public class MyClass4 {
 
         private static void aiTurn() {
             int x, y;
-         // если DOTS_TO_WIN == SIZE, тогда
+            int sum_goriz=0; // сумма по горизонтали
+            int sum_vert=0;// сумма по вертикали
+            int maxElem =0;
+            int sumDanger = SIZE - (SIZE-DOTS_TO_WIN);
+
+            // если DOTS_TO_WIN == SIZE, тогда
+            //проверим на опасную позицию : количество X в ряд = DOTS_TO_WIN - 1
+            int[][] arrChek01 = new int[SIZE+2][SIZE+2];
+            for (int i = 0; i < SIZE; i++) {
+                arrChek01[i][SIZE] = sum_goriz;
+
+                sum_goriz=0;
+                for (int j = 0; j < SIZE; j++) {
+                    arrChek01[i][j] = MAP_X[i][j];
+                    sum_goriz = sum_goriz + arrChek01[i][j];
+                    if (sum_goriz == sumDanger){
+                        x = i; y = j;
+
+                    }
+                }
+            }
+
+            for (int j = 0; j < SIZE; j++) {
+                arrChek01[SIZE][j] = sum_vert;
+                sum_vert=0;
+                for (int i = 0; i < SIZE; i++) {
+                    sum_vert = sum_vert + arrChek01[i][j];
+
+                }
+            }
+
+
+              System.out.println("максимальный элемент гор= "+ maxElem);
+//            System.out.println("минимальный элемент верт= "+ maxvert);
+
+            // если DOTS_TO_WIN == SIZE, тогда
          //проверим на опасную позицию количество X в ряд = DOTS_TO_WIN - 1
+
 
          // если DOTS_TO_WIN < SIZE , тогда
          // проверим на опасную позицию количество X в ряд = DOTS_TO_WIN - (SIZE -DOTS_TO_WIN)
@@ -190,7 +239,7 @@ public class MyClass4 {
 
          //необходимо занять центральную клетку, т.к. там больше ваориантов
 
-         //занимать открытые позиции
+         //занимать открытые вертикали и горизонтали
             do {
                 x = rand.nextInt(SIZE);
                 y = rand.nextInt(SIZE);
@@ -200,12 +249,12 @@ public class MyClass4 {
         }
 
     public static int inpSIZE() {
-        //Запросим ввести размер игрового поля нечетное число (3x3, 5x5, 7x7, 9x9,...)
+        //Запросим ввести размер игрового поля целое число (3x3, 5x5, 7x7, 9x9,...)
         int x;
         do {
             System.out.println("Введите размер игрового поля - целое число:");
             x = sc.nextInt();
-         } while (x%2 == 0);
+         } while (x<3);
 
            return x;
     }
