@@ -1,6 +1,6 @@
 package lesson4;
 
-import java.util.Arrays;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -41,13 +41,13 @@ public class MyClass4 {
                 DOTS_TO_WIN =  inpDOTS() ;
             }
              MAP_X = new int[SIZE][SIZE];
-            if (SIZE-DOTS_TO_WIN>=2 ) {
-                SUM_DANGER=SIZE - (SIZE - DOTS_TO_WIN) - 1;
+            if (SIZE-DOTS_TO_WIN>2 ) {
+                SUM_DANGER = DOTS_TO_WIN -2;
             }else{
-                SUM_DANGER = SIZE-1;
+                SUM_DANGER = DOTS_TO_WIN-1;
             }
 
-             System.out.println(SUM_DANGER);
+            System.out.println("danger " +SUM_DANGER);
 
             initMap();
             printMap();
