@@ -90,7 +90,7 @@ public class MyClass4 {
             }
             System.out.println();
             for (int i = 0; i < SIZE; i++) {
-                System.out.print(i + 1 + " ");
+                System.out.print(i + 1 + "  ");
                 for (int j = 0; j < SIZE; j++) {
                     System.out.print(map[i][j]+"  ");
                 }
