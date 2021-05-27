@@ -47,6 +47,7 @@ public class MyClass4 {
                 SUM_DANGER = SIZE-1;
             }
 
+             System.out.println(SUM_DANGER);
 
             initMap();
             printMap();
