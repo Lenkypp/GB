@@ -30,8 +30,6 @@ public class MyClass4 {
         private static int SUM_DANGER;
 
 
-
-
          public static void main(String[] args) {
             //Запросим ввести размер игрового поля (3x3, 5x5, 7x7, 9x9,...)
             SIZE = inpSIZE() ;
@@ -47,7 +45,7 @@ public class MyClass4 {
                 SUM_DANGER = DOTS_TO_WIN-1;
             }
 
-            System.out.println("danger " +SUM_DANGER);
+//            System.out.println("danger " +SUM_DANGER);
 
             initMap();
             printMap();
@@ -221,6 +219,8 @@ public class MyClass4 {
                 sum_vert=0;
                 for (int i = 0; i < SIZE; i++) {
                     sum_vert = sum_vert + arrChek01[i][j];
+                    if (sum_goriz == sumDanger){
+                        x = i; y = j;
 
                 }
             }
