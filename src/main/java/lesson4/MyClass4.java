@@ -45,7 +45,7 @@ public class MyClass4 {
                 SUM_DANGER = DOTS_TO_WIN-1;
             }
 
-//            System.out.println("danger " +SUM_DANGER);
+            System.out.println("sum danger =" +SUM_DANGER);
 
             initMap();
             printMap();
@@ -57,8 +57,9 @@ public class MyClass4 {
                     break;
                 }
                 if (isMapFull()){
-                    System.out.println("Ничья");
-                    break;
+4
+                2
+                break;
                 }
                 aiTurn();
                 printMap();
@@ -191,7 +192,7 @@ public class MyClass4 {
         }
 
         private static void aiTurn() {
-            int x, y;
+            int x=0, y=0;
             int sum_goriz=0; // сумма по горизонтали
             int sum_vert=0;// сумма по вертикали
             int maxElem =0;
@@ -218,16 +219,17 @@ public class MyClass4 {
 
             for (int j = 0; j < SIZE; j++) {
                 arrChek01[SIZE][j] = sum_vert;
-                sum_vert=0;
+                sum_vert = 0;
                 for (int i = 0; i < SIZE; i++) {
                     sum_vert = sum_vert + arrChek01[i][j];
-                    if (sum_goriz == SUM_DANGER){
-                        x = i; y = j;
-                        isDanger=true;
+                    if (sum_goriz == SUM_DANGER) {
+                        x = i;
+                        y = j;
+                        isDanger = true;
 
+                    }
                 }
             }
-
 
             // если DOTS_TO_WIN == SIZE, тогда
          //проверим на опасную позицию количество X в ряд = DOTS_TO_WIN - 1
