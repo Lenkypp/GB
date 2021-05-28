@@ -117,7 +117,7 @@ public class MyClass4 {
 
         private static boolean isWin(char symb,int predel) {
             int[][] arrCheck = new int[SIZE][SIZE];
-            int summ =0;
+            int summ = 0;
             // замена и проверка сумм по горизонтали ==============================
             for (int i = 0; i < SIZE; i++) {
                 summ = 0;
@@ -148,10 +148,10 @@ public class MyClass4 {
                 }
             }// for (int j = 0; j < SIZE; j++)
 
-           // проверка по 1-ой диагонали  =======================================
+            // проверка по 1-ой диагонали  =======================================
             summ = 0;
             for (int i = 0; i < SIZE; i++) {
-                 if (map[i][i] == symb) {
+                if (map[i][i] == symb) {
                     arrCheck[i][i] = 1; // присвоим 1 на адрес вместо X или 0
                     summ = summ + 1;
                     //если сумма единиц = SIZE  тогда победа
@@ -164,8 +164,8 @@ public class MyClass4 {
             // проверка по 2-ой диагонали  =======================================
             summ = 0;
             for (int i = 0; i < SIZE; i++) {
-                 if (map[i][SIZE-1-i] == symb) {
-                    arrCheck[i][SIZE-1-i] = 1; // присвоим 1 на адрес вместо X или 0
+                if (map[i][SIZE - 1 - i] == symb) {
+                    arrCheck[i][SIZE - 1 - i] = 1; // присвоим 1 на адрес вместо X или 0
                     summ = summ + 1;
                     //если сумма единиц = SIZE  тогда победа
                     if (summ == predel) {
@@ -173,19 +173,17 @@ public class MyClass4 {
                     }
                 }
             }//for (int i = 0; i < SIZE; i++)
-            if (symb == DOT_X){
-                 for (int i = 0; i < SIZE; i++) {
+
+            if (symb == DOT_X) {
+                for (int i = 0; i < SIZE; i++) {
                     summ = 0;
                     for (int j = 0; j < SIZE; j++) {
-                        MAP_X[i][j]=arrCheck[i][j];
-                            }
-                        }
+                        MAP_X[i][j] = arrCheck[i][j];
                     }
                 }//for (int i = 0; i < SIZE; i++)
+            }//if (symb == DOT_X)
 
 
-
-            }
             return false;
             } //isWin(
 
