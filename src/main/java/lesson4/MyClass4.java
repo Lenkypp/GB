@@ -195,7 +195,7 @@ public class MyClass4 {
             int sum_goriz=0; // сумма по горизонтали
             int sum_vert=0;// сумма по вертикали
             int maxElem =0;
-            int sumDanger = SIZE - (SIZE-DOTS_TO_WIN);
+            //int sumDanger = SIZE - (SIZE-DOTS_TO_WIN);
 
             // если DOTS_TO_WIN == SIZE, тогда
             //проверим на опасную позицию : количество X в ряд = DOTS_TO_WIN - 1
@@ -207,7 +207,7 @@ public class MyClass4 {
                 for (int j = 0; j < SIZE; j++) {
                     arrChek01[i][j] = MAP_X[i][j];
                     sum_goriz = sum_goriz + arrChek01[i][j];
-                    if (sum_goriz == sumDanger){
+                    if (sum_goriz == SUM_DANGER){
                         x = i; y = j;
 
                     }
@@ -219,7 +219,7 @@ public class MyClass4 {
                 sum_vert=0;
                 for (int i = 0; i < SIZE; i++) {
                     sum_vert = sum_vert + arrChek01[i][j];
-                    if (sum_goriz == sumDanger){
+                    if (sum_goriz == SUM_DANGER){
                         x = i; y = j;
 
                 }
