@@ -57,8 +57,7 @@ public class MyClass4 {
                     break;
                 }
                 if (isMapFull()){
-4
-                2
+
                 break;
                 }
                 aiTurn();
@@ -175,7 +174,17 @@ public class MyClass4 {
                 }
             }//for (int i = 0; i < SIZE; i++)
             if (symb == DOT_X){
-                 MAP_X = arrCheck;
+                 for (int i = 0; i < SIZE; i++) {
+                    summ = 0;
+                    for (int j = 0; j < SIZE; j++) {
+                        MAP_X[i][j]=arrCheck[i][j];
+                            }
+                        }
+                    }
+                }//for (int i = 0; i < SIZE; i++)
+
+
+
             }
             return false;
             } //isWin(
@@ -243,11 +252,15 @@ public class MyClass4 {
          //необходимо занять центральную клетку, т.к. там больше ваориантов
 
          //занимать открытые вертикали и горизонтали
-            if (!isDanger){
-                 do {
+            if (!isDanger) {
+                do {
                     x = rand.nextInt(SIZE);
                     y = rand.nextInt(SIZE);
                 } while (isCellInvalid(x, y));
+
+
+            }else{
+                System.out.println("sum danger "+x +","+y);
 
             }//if (!isDanger){
             System.out.printf("Компьютер походил в точку %d %d\n", x + 1, y + 1);
