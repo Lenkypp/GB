@@ -195,6 +195,7 @@ public class MyClass4 {
             int sum_goriz=0; // сумма по горизонтали
             int sum_vert=0;// сумма по вертикали
             int maxElem =0;
+            Boolean isDanger=false;
             //int sumDanger = SIZE - (SIZE-DOTS_TO_WIN);
 
             // если DOTS_TO_WIN == SIZE, тогда
@@ -209,6 +210,7 @@ public class MyClass4 {
                     sum_goriz = sum_goriz + arrChek01[i][j];
                     if (sum_goriz == SUM_DANGER){
                         x = i; y = j;
+                        isDanger=true;
 
                     }
                 }
@@ -221,13 +223,11 @@ public class MyClass4 {
                     sum_vert = sum_vert + arrChek01[i][j];
                     if (sum_goriz == SUM_DANGER){
                         x = i; y = j;
+                        isDanger=true;
 
                 }
             }
 
-
-              System.out.println("максимальный элемент гор= "+ maxElem);
-//            System.out.println("минимальный элемент верт= "+ maxvert);
 
             // если DOTS_TO_WIN == SIZE, тогда
          //проверим на опасную позицию количество X в ряд = DOTS_TO_WIN - 1
@@ -241,10 +241,13 @@ public class MyClass4 {
          //необходимо занять центральную клетку, т.к. там больше ваориантов
 
          //занимать открытые вертикали и горизонтали
-            do {
-                x = rand.nextInt(SIZE);
-                y = rand.nextInt(SIZE);
-            } while (isCellInvalid(x, y));
+            if (!isDanger){
+                 do {
+                    x = rand.nextInt(SIZE);
+                    y = rand.nextInt(SIZE);
+                } while (isCellInvalid(x, y));
+
+            }//if (!isDanger){
             System.out.printf("Компьютер походил в точку %d %d\n", x + 1, y + 1);
             map[y][x] = DOT_O;
         }
