@@ -119,14 +119,14 @@ public class MyClass4 {
         private static boolean isWin(char symb,int predel) {
             int[][] arrCheck = new int[SIZE][SIZE];
             int summ = 0;
-            if (symb == DOT_X) {
-                for (int i = 0; i < SIZE; i++) {
-                    summ = 0;
-                    for (int j = 0; j < SIZE; j++) {
-                        MAP_X[i][j] = arrCheck[i][j];
-                    }
-                }//for (int i = 0; i < SIZE; i++)
-            }//if (symb == DOT_X)
+//            if (symb == DOT_X) {
+//                for (int i = 0; i < SIZE; i++) {
+//                    summ = 0;
+//                    for (int j = 0; j < SIZE; j++) {
+//                        MAP_X[i][j] = arrCheck[i][j];
+//                    }
+//                }//for (int i = 0; i < SIZE; i++)
+//            }//if (symb == DOT_X)
 
             // замена и проверка сумм по горизонтали ==============================
             for (int i = 0; i < SIZE; i++) {
@@ -207,21 +207,29 @@ public class MyClass4 {
             int sum_vert=0;// сумма по вертикали
             int maxElem =0;
             Boolean isDanger=false;
-            //int sumDanger = SIZE - (SIZE-DOTS_TO_WIN);
-
-            // если DOTS_TO_WIN == SIZE, тогда
-            //проверим на опасную позицию : количество X в ряд по горизонтали = DOTS_TO_WIN - 2
             int[][] arrChek01 = new int[SIZE+2][SIZE+2];
+
             for (int i = 0; i < SIZE; i++) {
+                for (int j = 0; j < SIZE; j++) {
+                    if (map[i][j]==DOT_X)
+                        arrChek01[i][j]=1;
+                }
+            }//for (int i = 0; i < SIZE; i++)
+
+
+            //проверим на опасную позицию : количество X в ряд по горизонтали = DOTS_TO_WIN - 2
+             for (int i = 0; i < SIZE; i++) {
                 arrChek01[i][SIZE] = sum_goriz;
 
                 sum_goriz=0;
                 for (int j = 0; j < SIZE; j++) {
-                    arrChek01[i][j] = MAP_X[i][j];
                     sum_goriz = sum_goriz + arrChek01[i][j];
                     if (sum_goriz == SUM_DANGER){
                         x = i;
                         y = j+1;
+                        if (isCellInvalid( x, y)){
+                            y = j-SUM_DANGER;
+                        }
                         isDanger=true;
 
                     }
