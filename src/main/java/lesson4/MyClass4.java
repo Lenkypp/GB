@@ -28,6 +28,7 @@ public class MyClass4 {
         private static final Random rand = new Random();
         private static int[][] MAP_X;
         private static int SUM_DANGER;
+        private static int X_x, Y_x, DOT_x ;
 
 
          public static void main(String[] args) {
@@ -118,6 +119,15 @@ public class MyClass4 {
         private static boolean isWin(char symb,int predel) {
             int[][] arrCheck = new int[SIZE][SIZE];
             int summ = 0;
+            if (symb == DOT_X) {
+                for (int i = 0; i < SIZE; i++) {
+                    summ = 0;
+                    for (int j = 0; j < SIZE; j++) {
+                        MAP_X[i][j] = arrCheck[i][j];
+                    }
+                }//for (int i = 0; i < SIZE; i++)
+            }//if (symb == DOT_X)
+
             // замена и проверка сумм по горизонтали ==============================
             for (int i = 0; i < SIZE; i++) {
                 summ = 0;
@@ -174,14 +184,7 @@ public class MyClass4 {
                 }
             }//for (int i = 0; i < SIZE; i++)
 
-            if (symb == DOT_X) {
-                for (int i = 0; i < SIZE; i++) {
-                    summ = 0;
-                    for (int j = 0; j < SIZE; j++) {
-                        MAP_X[i][j] = arrCheck[i][j];
-                    }
-                }//for (int i = 0; i < SIZE; i++)
-            }//if (symb == DOT_X)
+
 
 
             return false;
@@ -207,7 +210,7 @@ public class MyClass4 {
             //int sumDanger = SIZE - (SIZE-DOTS_TO_WIN);
 
             // если DOTS_TO_WIN == SIZE, тогда
-            //проверим на опасную позицию : количество X в ряд = DOTS_TO_WIN - 1
+            //проверим на опасную позицию : количество X в ряд по горизонтали = DOTS_TO_WIN - 2
             int[][] arrChek01 = new int[SIZE+2][SIZE+2];
             for (int i = 0; i < SIZE; i++) {
                 arrChek01[i][SIZE] = sum_goriz;
@@ -217,20 +220,21 @@ public class MyClass4 {
                     arrChek01[i][j] = MAP_X[i][j];
                     sum_goriz = sum_goriz + arrChek01[i][j];
                     if (sum_goriz == SUM_DANGER){
-                        x = i; y = j;
+                        x = i;
+                        y = j+1;
                         isDanger=true;
 
                     }
                 }
             }
-
+            //проверим на опасную позицию : количество X в ряд по вертикали = DOTS_TO_WIN - 2
             for (int j = 0; j < SIZE; j++) {
                 arrChek01[SIZE][j] = sum_vert;
                 sum_vert = 0;
                 for (int i = 0; i < SIZE; i++) {
                     sum_vert = sum_vert + arrChek01[i][j];
                     if (sum_goriz == SUM_DANGER) {
-                        x = i;
+                        x = i+1;
                         y = j;
                         isDanger = true;
 
@@ -287,5 +291,6 @@ public class MyClass4 {
         return x;
 
     }
+
 
 }// class
