@@ -24,15 +24,14 @@ public class MyClass5 {
         persArray[1] = new Personal("Муромец Илья", "Богатырь>", "i.muromec@geroy.com", "+790245565870", 50000, 200);
         persArray[2] = new Personal("Никитич Добрыня", "Богатырь>", "d.nikitich@geroy.com", "+790245565871", 50000, 150);
         persArray[3] = new Personal("Попович Алеша", "Богатырь>", "a.popovich@geroy.com", "+790245565872", 50000, 100);
-        persArray[4] = new Personal("Бессмертный Кащей", "Злыдень>", "k.bessmertny@geroy.com", "+790245565873", 50000, 200);
+        persArray[4] = new Personal("Бессмертный Кащей", "Злыдень", "k.bessmertny@geroy.com", "+790245565873", 50000, 200);
 
         System.out.println("Информация о сотрудниках сотрудников, чей возраст больше 40 :");
 
         for (int i = 0; i < 5; i++) {
-            if ( persArray[i].age>40){
+            if ( persArray[i].getAge()>40){
                 System.out.println("==========="+(i+1)+"======");
                 persArray[i].printInfoEmployee();
-
             }
 
 
