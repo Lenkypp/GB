@@ -208,12 +208,16 @@ public class MyClass4 {
             int maxElem =0;
             Boolean isDanger=false;
             int[][] arrChek01 = new int[SIZE+2][SIZE+2];
-
+// ===========================================
             for (int i = 0; i < SIZE; i++) {
                 for (int j = 0; j < SIZE; j++) {
                     if (map[i][j]==DOT_X)
                         arrChek01[i][j]=1;
+                    System.out.print(arrChek01[i][j]+ " ");
+
                 }
+                System.out.println();
+
             }//for (int i = 0; i < SIZE; i++)
 
 
@@ -226,12 +230,13 @@ public class MyClass4 {
                     sum_goriz = sum_goriz + arrChek01[i][j];
                     if (sum_goriz == SUM_DANGER){
                         x = i;
-                        y = j+1;
+                        y = j+2;
                         if (isCellInvalid( x, y)){
-                            y = j-SUM_DANGER;
-                        }
-                        isDanger=true;
+                            y = j-SUM_DANGER+1;
+                            isDanger=true;
+                            System.out.println("!!!горизронталь "+y);
 
+                        }
                     }
                 }
             }
@@ -242,9 +247,15 @@ public class MyClass4 {
                 for (int i = 0; i < SIZE; i++) {
                     sum_vert = sum_vert + arrChek01[i][j];
                     if (sum_goriz == SUM_DANGER) {
-                        x = i+1;
+                        x = i+2;
                         y = j;
-                        isDanger = true;
+                        if (isCellInvalid( x, y)){
+                            x = i-SUM_DANGER+1;
+
+                            isDanger = true;
+                            System.out.println("!!!вертикаль "+x);
+
+                        }
 
                     }
                 }
@@ -260,7 +271,6 @@ public class MyClass4 {
          //если есть опасная позиция - перекрыть поставив 0
 
          //необходимо занять центральную клетку, т.к. там больше ваориантов
-
          //занимать открытые вертикали и горизонтали
             if (!isDanger) {
                 do {
@@ -270,7 +280,7 @@ public class MyClass4 {
 
 
             }else{
-                System.out.println("sum danger "+x +","+y);
+//                System.out.println("sum danger "+x +","+y);
 
             }//if (!isDanger){
             System.out.printf("Компьютер походил в точку %d %d\n", x + 1, y + 1);
