@@ -10,17 +10,17 @@ package lesson6;
 
 public class Animal {
     protected String name;
-//    protected int maxRun=500;
+    protected int count=0;
 //    protected int maxSwim=10;
 
     public Animal(String name) {
         this.name = name;
-
+        count++;
     }
 
     @Override
     public String toString() {
-        return "Animal{" +
+        return "Животное{" +
                 "name='" + name + '\'' +
                 '}';
     }
@@ -34,6 +34,10 @@ public class Animal {
 
     }
 
+    public void printCount() {
+        System.out.println("количество животных = "+count);
+
+    }
 
 
 
