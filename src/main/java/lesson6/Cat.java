@@ -1,24 +1,28 @@
 package lesson6;
 
 public class Cat extends Animal {
-    private int maxRun = 200;
-    private int maxSwim =0;
 
     public Cat(String name) {
-        super(name);
-     }
+        super(name, 200, 0, 2f, "Кот");
+    }
 
     @Override
     public String toString() {
-        return "Кот{" +
-                "name='" + name + '\'' +
-                '}';
-
+        return super.toString();
     }
 
     @Override
     public void run(int lenth) {
-        System.out.println("Кот пробежал "+((lenth<maxRun) ? lenth :maxRun)+" м");
+        super.run(lenth);
     }
 
-   }
+    @Override
+    protected void swim(int lenth) {
+        System.out.println("Кот не умеет плавать.");;
+    }
+
+    @Override
+    public void jump(float height) {
+        super.jump(height);
+    }
+}

@@ -10,27 +10,45 @@ package lesson6;
 
 public class Animal {
     protected String name;
-    protected int count=0;
-//    protected int maxSwim=10;
+    private int maxRun;
+    private int maxSwim;
+    private float maxJump;
+    protected String typeAnimal;
 
-    public Animal(String name) {
+    protected int count=0;
+
+    public Animal(String name, int maxRun, int maxSwim, float maxJump, String typeAnimal) {
         this.name = name;
+        this.maxRun = maxRun;
+        this.maxSwim = maxSwim;
+        this.maxJump = maxJump;
+        this.typeAnimal=typeAnimal;
         count++;
+
+
     }
 
     @Override
     public String toString() {
-        return "Животное{" +
-                "name='" + name + '\'' +
+        return "{"+typeAnimal +
+                " name='" + name + '\'' +
                 '}';
     }
 
     public void run(int lenth){
-        System.out.println("Животное пробежало "+lenth+" м");
-
+//      System.out.println(typeAnimal +" пробежал "+((lenth<maxRun) ? lenth :maxRun)+" м");
+        actionInt(lenth,maxRun,"бегает");
     }
-    public void swim(int lenth){
-        System.out.println("Животное проплыло "+lenth+" м");
+    protected void swim(int lenth){
+//      System.out.println(typeAnimal +" плавает "+((lenth<maxSwim) ? lenth :maxSwim)+" м");
+        actionInt(lenth,maxSwim,"плавает");
+    }
+
+
+
+    public void jump(float height) {
+ //      System.out.println(typeAnimal +" прыгает в высоту на "+((height<maxJump) ? height :maxJump)+" м");
+        actionInt(height,maxJump,"прыгает в высоту");
 
     }
 
@@ -38,8 +56,27 @@ public class Animal {
         System.out.println("количество животных = "+count);
 
     }
+    public void actionInt(int arg , int maxArg,String action) {
+        if (arg>maxArg) {
+            System.out.println(typeAnimal+" "+action+" "+maxArg+" м");
 
+        }else {
+            System.out.println(typeAnimal+" "+action+" "+arg+" м");
 
+        }
+
+    }
+
+    public void actionInt(float arg , float maxArg,String action) {
+        if (arg>maxArg) {
+            System.out.println(typeAnimal+" "+action+" "+maxArg+" м");
+
+        }else {
+            System.out.println(typeAnimal+" "+action+" "+arg+" м");
+
+        }
+
+    }
 
 
 }
