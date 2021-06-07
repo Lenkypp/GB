@@ -2,8 +2,9 @@ package lesson6;
 
 public class Cat extends Animal {
 
-    public Cat(String name) {
-        super(name, 200, 0, 2f, "Кот");
+
+    public Cat(String name, int maxRun, int maxSwim, float maxJump) {
+        super(name, maxRun, maxSwim, maxJump, "Кот");
     }
 
     @Override

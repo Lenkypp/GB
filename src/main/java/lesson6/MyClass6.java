@@ -6,16 +6,16 @@ public class MyClass6 {
 
         System.out.println();
         //======
-        Dog dog = new Dog("Бобик");
+        Dog dog = new Dog("Бобик",400,70,1f);
 
         System.out.println(dog);
-        dog.run(300);
+        dog.run(500);
         dog.swim(120);
         dog.jump(4f);
 
         System.out.println();
 
-        Cat cat = new Cat("Мурзик");
+        Cat cat = new Cat("Мурзик",300,0,2f);
 
         System.out.println(cat.toString());
         cat.run(400);

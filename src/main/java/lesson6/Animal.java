@@ -32,8 +32,10 @@ public class Animal {
     public String toString() {
         return "{"+typeAnimal +
                 " name='" + name + '\'' +
+                " run='" + name + '\'' +
                 '}';
     }
+
 
     public void run(int lenth){
 //      System.out.println(typeAnimal +" пробежал "+((lenth<maxRun) ? lenth :maxRun)+" м");
