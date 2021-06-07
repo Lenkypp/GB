@@ -20,4 +20,12 @@ public class Plate {
     public int getFood() {
         return food;
     }
+
+    public void addFood(int someFood){
+        if (someFood > 0) {
+            this.food = this.food +someFood;
+            System.out.println("добавлена еда в тарелку + "+someFood+". Еды в тарелке ="+this.food);
+        }
+
+    }
 }

@@ -20,17 +20,23 @@ public class MainClass7 {
 
         arrCat[0] = new Cat("Barsik", 5);
         arrCat[1] = new Cat("Barsik1", 10);
-        arrCat[2] = new Cat("Barsik2", 20);
-        arrCat[3] = new Cat("Barsik3", 20);
+        arrCat[2] = new Cat("Barsik2", 15);
+        arrCat[3] = new Cat("Barsik3", 25);
         arrCat[4] = new Cat("Barsik4", 30);
         arrCat[5] = new Cat("Barsik5", 40);
 
         for (Cat cat00 : arrCat) {
             cat00.eat(plate);
+            if (!cat00.getEat()) {
+                plate.addFood(50);
+                cat00.eat(plate);
+
+            }
         }
-
-
+        System.out.println();
         plate.info();
+
+        plate.addFood(100);
     }
 
 }
