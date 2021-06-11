@@ -4,7 +4,7 @@ public class MainClass8 {
 
     public static void main(String[] args) {
         Man man = new Man("Вася",8000,2);
-        RanRoad road = new RanRoad(2);
+        RunRoad road = new RunRoad(2);
 
         System.out.println(man.toString());
 
@@ -13,6 +13,7 @@ public class MainClass8 {
 
         System.out.println(road.toString());
 
+        road.somebodyRun(20);
     }
 
 

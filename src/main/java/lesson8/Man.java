@@ -13,34 +13,33 @@ public class Man {
 
     @Override
     public String toString() {
-        return "{ Человек"+
-                " name='" + name + '\'' +
+        return "{"+ name+'" + name + '\'' +
                 " maxRun='" + maxRun + '\'' +
                 " maxJump='" + maxJump + '\'' +
                 '}';
     }
 
+
+
     public void run(int lenth){
         actionInt(lenth,maxRun,"бегает");
     }
 
-    protected void jump(int height){
-        actionInt(height,maxJump,"прыгает в высоту");
-    }
 
+    public void jump(int lenth) {
+        actionInt(lenth,maxJump,"прыгает в высоту");
+
+    }
 
     public void actionInt(int arg , int maxArg,String action) {
         if (arg>maxArg) {
-            System.out.println("Человек "+ this.name+" " +action+" "+maxArg+" м");
+            System.out.println(name+" "+action+" "+maxArg+" м");
 
         }else {
-            System.out.println("Человек "+ this.name+" "+action+" "+arg+" м");
+            System.out.println(name+" "+action+" "+arg+" м");
 
         }
 
     }
-
-
-
 
 }
