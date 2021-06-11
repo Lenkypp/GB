@@ -8,9 +8,9 @@ public class RunRoad {
         this.lenth = lenth;
     }
 
-    public void sobodyRun( int lenth){
+    public void somebodyRun(String some, int lenth){
 
-        System.out.println(" бежит по беговой дорожкк "+lenth);
+        System.out.println(some+" бежит по беговой дорожке "+lenth);
 
 
     }

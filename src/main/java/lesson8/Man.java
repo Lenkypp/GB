@@ -13,13 +13,15 @@ public class Man {
 
     @Override
     public String toString() {
-        return "{"+ name+'" + name + '\'' +
+        return "{Человек name='" + name + '\'' +
                 " maxRun='" + maxRun + '\'' +
                 " maxJump='" + maxJump + '\'' +
                 '}';
     }
 
-
+    public String getName() {
+        return name;
+    }
 
     public void run(int lenth){
         actionInt(lenth,maxRun,"бегает");

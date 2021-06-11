@@ -11,9 +11,8 @@ public class MainClass8 {
         man.run(4000);
         man.jump(3);
 
-        System.out.println(road.toString());
 
-        road.somebodyRun(20);
+        road.somebodyRun(man.getName(),20);
     }
 
 
