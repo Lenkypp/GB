@@ -9,7 +9,7 @@ public interface Fitness {
     public default  Boolean run(int lenth,int maxRun,RunRoad runRoad){
        int lenthRunRoad= runRoad.getSize();
        Boolean isRun;
-       int maxR =(lenth > maxRun)? maxRun: lenth ;
+       int maxR =(lenth >= maxRun)? maxRun: lenth ;
 
        if (maxR>=lenthRunRoad){
            System.out.println("молодец, пробежал на беговой дорожке "+maxR+" м ("+maxR+")");
@@ -24,12 +24,12 @@ public interface Fitness {
     public  default  Boolean jump(int height, int maxJump, Wall wall){
         int heightWall = wall.getSize();
         Boolean isJump;
-        int maxJ =(height > maxJump )? maxJump : height;
+        int maxJ =(height >= maxJump )? maxJump : height;
         if (maxJ>=heightWall)  {
-            System.out.println("молодец, перепрыгнул стену "+maxJ+" м ("+maxJump+")");
+            System.out.println("молодец, перепрыгнул стену "+maxJ+" м ("+maxJ+")");
             isJump=  true;
         }else {
-                System.out.println(" не смог перепрыгнуть стену "+heightWall+" м ("+maxJump+")");
+                System.out.println(" не смог перепрыгнуть стену "+heightWall+" м ("+maxJ+")");
             isJump=  false;
        };
         return isJump;

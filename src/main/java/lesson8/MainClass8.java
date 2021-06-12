@@ -17,9 +17,9 @@ public class MainClass8 {
     public static void main(String[] args) {
 
         Boolean isAct ;
-        Man man     = new Man("Вася",10000,2);
+        Man man     = new Man("Вася",12000,2);
         Robot rob   = new Robot("Робот Зазнайка",2000,1);
-        Cat cat     = new Cat("Мурзик",1000,3);
+        Cat cat     = new Cat("Мурзик",11000,3);
 
         RunRoad runRoad = new RunRoad(9000);
         Wall wall = new Wall(2);
@@ -39,8 +39,6 @@ public class MainClass8 {
 
         arrEquipments[0]= runRoad;
         arrEquipments[1]= wall;
-         RunRoad tek_runRoad;
-         Wall tek_wall;
 
           for (Fitness obj : arrObj) {
             System.out.println(obj.toString());
