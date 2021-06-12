@@ -1,11 +1,11 @@
 package lesson8;
 
-public class Man implements Fitness {
+public class Robot implements Fitness{
     private String name;
     private int maxRun;
     private int maxJump;
 
-    public Man(String name, int maxRun, int maxJump) {
+    public Robot(String name, int maxRun, int maxJump) {
         this.name = name;
         this.maxRun = maxRun;
         this.maxJump = maxJump;
@@ -13,14 +13,10 @@ public class Man implements Fitness {
 
     @Override
     public String toString() {
-        return "{Человек name='" + name + '\'' +
+        return "{Робот name='" + name + '\'' +
                 " maxRun='" + maxRun + '\'' +
                 " maxJump='" + maxJump + '\'' +
                 '}';
-    }
-
-    public String getName() {
-        return name;
     }
 
     public int getMaxRun() {
@@ -30,4 +26,5 @@ public class Man implements Fitness {
     public int getMaxJump() {
         return maxJump;
     }
+
 }
