@@ -33,28 +33,26 @@ public class MainClass8 {
         arrObj[1]= rob;
         arrObj[2]= cat;
 
-
-
         Equipments[] arrEquipments = new Equipments[2];
 
         arrEquipments[0]= runRoad;
         arrEquipments[1]= wall;
 
-          for (Fitness obj : arrObj) {
+        int e = -1;
+        for (Fitness obj : arrObj) {
             System.out.println(obj.toString());
+            e++;
 
-            int e = 0;
             for (Equipments equipment : arrEquipments) {
-                    if (equipment instanceof RunRoad) {
+                 if (equipment instanceof RunRoad) {
                         isAct = obj.run(arrLenth[e], obj.getMaxRun(), ((RunRoad) equipment));
 
                     }else{
                         isAct = obj.jump(arrHeight[e], obj.getMaxJump(), ((Wall) equipment));
 
                     }
-                    e++;
                 if (!isAct) {
-                    break;
+                     break;
 
                 }
                  }
