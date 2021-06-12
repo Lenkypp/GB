@@ -19,11 +19,14 @@ public class Cat implements Fitness{
                 '}';
     }
 
+    @Override
     public int getMaxRun() {
-        return maxRun;
+        return 0;
     }
 
+    @Override
     public int getMaxJump() {
-        return maxJump;
+        return 0;
     }
+
 }

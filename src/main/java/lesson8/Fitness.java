@@ -4,7 +4,6 @@ public interface Fitness {
 
     public int getMaxRun() ;
     public int getMaxJump();
-    public int getSize();
 
 
     public default  Boolean run(int lenth,int maxRun,RunRoad runRoad){

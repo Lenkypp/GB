@@ -19,10 +19,12 @@ public class Robot implements Fitness{
                 '}';
     }
 
+    @Override
     public int getMaxRun() {
         return maxRun;
     }
 
+    @Override
     public int getMaxJump() {
         return maxJump;
     }

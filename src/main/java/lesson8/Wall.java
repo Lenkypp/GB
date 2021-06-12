@@ -1,7 +1,7 @@
 package lesson8;
 
-public class Wall implements Fitness{
-    public int size ;
+public class Wall implements Equipments{
+    private int size ;
 
     public Wall(int size) {
         this.size = size;

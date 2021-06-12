@@ -1,7 +1,7 @@
 package lesson8;
 
-public class RunRoad implements Fitness{
-    public int size;
+public class RunRoad implements Equipments{
+    private int size;
 
     public RunRoad(int size) {
         this.size = size;
