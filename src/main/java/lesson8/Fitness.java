@@ -1,10 +1,14 @@
 package lesson8;
 
 public interface Fitness {
-    public int lenthRunRoad=9000;
-    public int heightWall = 2;
 
-    public default  Boolean run(int lenth,int maxRun){
+    public int getMaxRun() ;
+    public int getMaxJump();
+    public int getSize();
+
+
+    public default  Boolean run(int lenth,int maxRun,RunRoad runRoad){
+       int lenthRunRoad= runRoad.getSize();
        Boolean isRun;
        int maxR =(lenth > maxRun)? maxRun: lenth ;
 
@@ -18,7 +22,8 @@ public interface Fitness {
         return isRun;
     }//run
 
-    public  default  Boolean jump(int height, int maxJump){
+    public  default  Boolean jump(int height, int maxJump, Wall wall){
+        int heightWall = wall.getSize();
         Boolean isJump;
         int maxJ =(height > maxJump )? maxJump : height;
         if (maxJ>=heightWall)  {

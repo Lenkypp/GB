@@ -23,10 +23,12 @@ public class Man implements Fitness {
         return name;
     }
 
+    @Override
     public int getMaxRun() {
         return maxRun;
     }
 
+    @Override
     public int getMaxJump() {
         return maxJump;
     }
