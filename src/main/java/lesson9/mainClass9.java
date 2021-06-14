@@ -26,10 +26,10 @@ public class mainClass9 {
 
     public static void recieveArr(String[][] arrS) {
 
-        if (arrS.length<>4) {
-            System.out.println("не тот размерчик");
-
-        }
+//        if (arrS.length<>4) {
+//            System.out.println("не тот размерчик");
+//
+//        }
 
 
     }
