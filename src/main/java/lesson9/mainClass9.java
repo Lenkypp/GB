@@ -9,31 +9,71 @@ package lesson9;
 // и MyArrayDataException и вывести результат расчета.
 //
 
+import java.util.stream.Stream;
+
 public class mainClass9 {
     public static void main(String[] args) {
-        String[][] arrS = new String[4][4];
+        String[][] arrGood = new String[4][4];
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                arrS[i][j] = "1"+i;
-                System.out.print(arrS[i][j]+ " ");
+                arrGood[i][j] = "1"+i;
+                if (j == 3) {
+                    //bad cells
+                    arrGood[i][j] = "aa"+i;
+
+                }
+                System.out.print(arrGood[i][j]+ " ");
             }
             System.out.println();
 
         }
 
+        String[][] arrBad5 = new String[5][5];
+        String[][] arrBad3 = new String[3][4];
+
+        System.out.println(arrGood.length+ " - good row length");
+        System.out.println(arrGood[0].length+ " -good column length");
+
+
+
+        recieveArr(arrGood);
+        recieveArr(arrBad5);
+
+
+
 
     }//main
 
     public static void recieveArr(String[][] arrS) {
+        int arrRow = arrS.length;
+        int arrColumn = arrS[0].length;
+        int number;
+        if (arrRow != 4 || arrColumn != 4) {
+            MyArraySizeException except = new MyArraySizeException("Размер массива не соответствует 4х4 !");
+        } else {
+            System.out.println("Размер массива соответствует 4х4, ok.");
+        }
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                System.out.println();
+                try {
+                    number = (int) arrS[i][1];
 
-//        if (arrS.length<>4) {
-//            System.out.println("не тот размерчик");
-//
-//        }
+                    System.out.print(number + " ");
+                } catch (ClassCastException e) {
+                    MyArrayDataException except = new MyArrayDataException(i, 1);
+
+                } catch (NumberFormatException e) {
+                    MyArrayDataException except = new MyArrayDataException(i, 1);
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    MyArrayDataException except = new MyArrayDataException(i, 1);
+                    //e.printStackTrace();
+                } finally {
+
+                }//try
 
 
+            }   //for
+        }//for
     }
-
-
-
 }//class
