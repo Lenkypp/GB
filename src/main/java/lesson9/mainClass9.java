@@ -49,17 +49,18 @@ public class mainClass9 {
         int arrColumn = arrS[0].length;
         int number;
         if (arrRow != 4 || arrColumn != 4) {
-            MyArraySizeException except = new MyArraySizeException("Размер массива не соответствует 4х4 !");
+            MyArraySizeException except = new MyArraySizeException("Размер массива не соответствует 4х4! "+arrRow+"x"+arrColumn);
+            return;
         } else {
             System.out.println("Размер массива соответствует 4х4, ok.");
         }
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                System.out.println();
                 try {
-                    number = (int) arrS[i][1];
+                    number = Integer.parseInt(arrS[i][j]);
 
                     System.out.print(number + " ");
+                    number =0;
                 } catch (ClassCastException e) {
                     MyArrayDataException except = new MyArrayDataException(i, 1);
 
@@ -69,11 +70,12 @@ public class mainClass9 {
                     MyArrayDataException except = new MyArrayDataException(i, 1);
                     //e.printStackTrace();
                 } finally {
-
+                    number =0;
                 }//try
 
 
             }   //for
+            System.out.println();
         }//for
     }
 }//class
